@@ -3,28 +3,22 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Services\NewsAggregatorService;
 
 class FetchAllNews extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'app:fetch-all-news';
+    protected $signature = 'news:fetch';
+    protected $description = 'Fetch news from all integrated sources';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Command description';
+    public function __construct(protected NewsAggregatorService $aggregator)
+    {
+        parent::__construct();
+    }
 
-    /**
-     * Execute the console command.
-     */
     public function handle()
     {
-        //
+        $this->info("Fetching news from all APIs...");
+        $this->aggregator->fetchAll();
+        $this->info("News fetching complete.");
     }
 }

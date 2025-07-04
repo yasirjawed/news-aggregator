@@ -4,9 +4,10 @@ namespace App\Services;
 
 use Illuminate\Support\Facades\Http;
 use App\Interfaces\ArticleRepositoryInterface;
+use App\Interfaces\NewsServiceInterface;
 use Carbon\Carbon;
 
-class NewsApiService
+class NewsApiService implements NewsServiceInterface
 {
     protected string $apiKey;
     protected ArticleRepositoryInterface $repo;

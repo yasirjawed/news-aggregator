@@ -17,8 +17,16 @@ class ArticleController extends Controller
 
     public function index(Request $request)
     {
-        $filters = $request->only(['q', 'category', 'source', 'author', 'from', 'to']);
-        return response()->json($this->articles->filter($filters));
+        $filters = $request->only([
+            'q', 'category', 'source', 'author', 'from', 'to', 'sort', 'per_page'
+        ]);
+
+        $articles = $this->articles->filter($filters);
+
+        return response()->json([
+            'success' => true,
+            'data' => $articles,
+        ]);
     }
 
     public function show($id)
