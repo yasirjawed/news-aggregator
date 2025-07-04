@@ -89,6 +89,12 @@ Set up cron:
 
 ---
 
+## PHPStan Analyze
+In `Terminal`:
+php vendor\bin\phpstan analyse app
+
+
+
 ## API Endpoints
 
 ### Get All Articles

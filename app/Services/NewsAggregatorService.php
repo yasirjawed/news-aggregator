@@ -4,6 +4,7 @@ namespace App\Services;
 
 class NewsAggregatorService
 {
+    private array $services;
     public function __construct(
         NewsApiService $newsApiService,
         NYTApiService $nytApiService,
